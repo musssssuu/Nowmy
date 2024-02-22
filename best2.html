@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Name and Age Verification</title>
+  <style>
+    body {
+      background-color: #f2f2f2;
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    
+    h1 {
+      color: #333;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    input[type="text"],
+    input[type="number"] {
+      width: 300px;
+      height: 30px;
+      font-size: 16px;
+      padding: 8px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+    
+    input[type="submit"] {
+      width: 100px;
+      height: 40px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    .message {
+      text-align: center;
+      font-size: 18px;
+      margin-top: 20px;
+    }
+    
+    .correct {
+      color: #4CAF50;
+    }
+    
+    .wrong {
+      color: #FF5733;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to the Name and Age Verification Page</h1>
+  
+  <form id="verificationForm" onsubmit="return verifyInput()">
+    <input type="text" id="nameInput" placeholder="Enter your name" required>
+    <br>
+    <input type="number" id="ageInput" placeholder="Enter your age" required>
+    <br>
+    <input type="submit" value="Submit">
+  </form>
+  
+  <div id="messageContainer" class="message"></div>
+  
+  <script>
+    function verifyInput() {
+      var name = document.getElementById("nameInput").value;
+      var age = document.getElementById("ageInput").value;
+      var messageContainer = document.getElementById("messageContainer");
+      
+      if (name.toLowerCase() === "nowmy" && age === "16") {
+        messageContainer.innerHTML = "<span class='correct'>Correct name and age detected! Welcome boss!</span>";
+      } else {
+        messageContainer.innerHTML = "<span class='wrong'>Wrong name or age detected!</span>";
+      }
+      
+      return false; // Prevent form submission
+    }
+  </script>
+</body>
+</html>
